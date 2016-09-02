@@ -14,14 +14,9 @@ if(os.path.exists('XYWYSRV_CONFIG')):
 cf=ConfigParser.ConfigParser()
 cf.read('XYWYSRV_CONFIG_INI')
 secs = cf.get('config','xywysrv_server_name').strip('"');
-if(secs=='yimai.api.xywy.com'):
-	REDIS_HOST='rm6562i.redis.service.op.xywy.com' #cf.get('config','xywysrv_redis_host_55')
-	REDIS_PORT=6562 #int(cf.get('config','xywysrv_redis_port_55'))
-	print('m')
-else:
-	REDIS_HOST = '10.20.9.12'
-	REDIS_PORT = 6379
-	print('t')
+REDIS_HOST = '10.20.9.12'
+REDIS_PORT = 6379
+print('t')
 
 #实例化主库
 r=redis.StrictRedis(host=REDIS_HOST,port=REDIS_PORT,db=0)
